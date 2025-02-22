@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Your one-stop destination for free online tools. Compress images, convert PDFs, and more!">
+  <meta name="keywords" content="online tools, image tools, PDF tools, compress images, convert PDFs">
+  <meta name="author" content="Your Name">
+  <title>Online Tools - PDF to Word Converter</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+  <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-300">PDF Tools</a>
+      <div class="flex items-center space-x-6">
+        <a href="#tools" class="text-gray-700 hover:text-blue-600 transition duration-300">Tools</a>
+        <a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a>
+        <a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">FAQ</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Sign
+          Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto px-4 mt-20 py-8">
+    <section class="bg-white p-8 rounded-lg shadow-md">
+      <h2 class="text-3xl font-semibold text-green-600 text-center mb-6">Convert Your PDFs to Word</h2>
+      <div class="max-w-md mx-auto">
+        <label for="pdf-input"
+          class="cursor-pointer flex flex-col items-center justify-center border-2 border-dashed border-green-400 rounded-lg p-6 hover:bg-green-50 transition">
+          <svg class="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+          </svg>
+          <p class="mt-4 text-gray-600 text-center">
+            <span class="text-green-600 font-semibold">Click to upload</span> or drag and drop PDF files
+          </p>
+          <p class="text-sm text-gray-500 mt-2">(Max file size: 10MB)</p>
+        </label>
+        <input type="file" id="pdf-input" accept="application/pdf" class="hidden">
+      </div>
+
+      <div id="pdf-list" class="mt-6 space-y-2 max-w-md mx-auto"></div>
+
+      <div class="text-center mt-6">
+        <button id="convert-btn"
+          class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2">
+          Convert to Word
+        </button>
+      </div>
+
+      <div id="download-section" class="text-center mt-6 hidden">
+        <a id="download-link"
+          class="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 inline-block"
+          download="converted.docx">
+          Download Word Document
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 bottom-0 fixed w-full text-white py-4">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; Created by Sunil Kumar, 2025 PDF Tools. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('pdf-input').addEventListener('change', function () {
+      const pdfList = document.getElementById('pdf-list');
+      pdfList.innerHTML = '';
+
+      for (const file of this.files) {
+        const listItem = document.createElement('div');
+        listItem.className = 'bg-gray-50 p-3 rounded-lg flex items-center justify-between';
+        listItem.innerHTML = `
+          <span class="text-gray-700">${file.name}</span>
+          <span class="text-sm text-gray-500">${(file.size / 1024).toFixed(2)} KB</span>
+        `;
+        pdfList.appendChild(listItem);
+      }
+    });
+
+    document.getElementById('convert-btn').addEventListener('click', async function () {
+      const fileInput = document.getElementById('pdf-input');
+      const downloadSection = document.getElementById('download-section');
+      const downloadLink = document.getElementById('download-link');
+
+      if (fileInput.files.length === 0) {
+        alert('Please select a PDF to convert.');
+        return;
+      }
+
+      try {
+        const file = fileInput.files[0];
+        const arrayBuffer = await file.arrayBuffer();
+        const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+
+        const doc = new docx.Document();
+        const paragraphs = [];
+
+        for (const page of pdfDoc.getPages()) {
+          const textContent = await page.getTextContent();
+          const text = textContent.items.map(item => item.str).join(' ');
+          paragraphs.push(new docx.Paragraph(text));
+        }
+
+        doc.addSection({ children: paragraphs });
+
+        const packer = new docx.Packer();
+        const docBlob = await packer.toBlob(doc);
+        const docUrl = URL.createObjectURL(docBlob);
+
+        downloadLink.href = docUrl;
+        downloadSection.style.display = 'block';
+
+        downloadLink.click();
+      } catch (error) {
+        console.error('Error converting PDF to Word:', error);
+        alert('An error occurred while converting the PDF. Please try again.');
+      }
+    });
+  </script>
+</body>
+
+</html>
