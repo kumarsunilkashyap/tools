@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Free online PDF tools to merge, split, compress, convert, rotate, unlock, and watermark PDFs. 100% FREE and easy to use!">
+  <meta name="keywords" content="PDF tools, merge PDF, split PDF, compress PDF, convert PDF, rotate PDF, unlock PDF, watermark PDF">
+  <meta name="sunil kumar" content="first website">
+  <title>PDF Tools - All-in-One Solution</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Sticky Navbar -->
+  <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+    <div class="container mx-auto px-6 py-2 flex justify-between items-center">
+      <!-- Logo or Brand Name -->
+      <a href="#" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition duration-300">PDF Tools</a>
+  
+      <!-- Navigation Links -->
+      <div class="flex items-center space-x-6">
+        <a href="#tools" class="text-gray-700 hover:text-blue-600 transition duration-300">Tools</a>
+        <a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a>
+        <a href="#faq" class="text-gray-700 hover:text-blue-600 transition duration-300">FAQ</a>
+        <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Sign Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-slate-600 text-white py-28 mt-16">
+    <div class="container mx-auto px-6 text-center">
+      <!-- Main Heading (h1 for SEO) -->
+      <h1 class="text-5xl font-bold mb-4">Every Tool You Need to Work with PDFs</h1>
+      
+      <!-- Supporting Paragraph -->
+      <p class="text-xl mb-8">All tools are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock, and watermark PDFs with just a few clicks.</p>
+      
+      <!-- Call-to-Action Button -->
+      <a href="#tools" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600" aria-label="Explore Tools">
+        Explore Tools
+      </a>
+    </div>
+  </section>
+
+  <!-- Tools Section -->
+  <section id="tools" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Our PDF Tools</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Merge PDF Card -->
+      <a href="./pdf-merge.html" class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767084.png" alt="Merge PDF" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-blue-600">Merge PDF</h3>
+        <p class="text-gray-600">Combine PDFs in the order you want with the easiest PDF merger available.</p>
+      </a>
+
+      <!-- Split PDF Card -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767085.png" alt="Split PDF" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-green-600">Split PDF</h3>
+        <p class="text-gray-600">Separate one page or a whole set for easy conversion into independent PDF files.</p>
+      </div>
+
+      <!-- Compress PDF Card -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767034.png" alt="Compress PDF" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-purple-600">Compress PDF</h3>
+        <p class="text-gray-600">Reduce file size while optimizing for maximal PDF quality.</p>
+      </div>
+
+      <!-- PDF to Word Card -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767092.png" alt="PDF to Word" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-red-600">PDF to Word</h3>
+        <p class="text-gray-600">Easily convert your PDF files into easy-to-edit DOC and DOCX documents.</p>
+      </div>
+
+      <!-- PDF to PowerPoint Card -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767091.png" alt="PDF to PowerPoint" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-yellow-600">PDF to PowerPoint</h3>
+        <p class="text-gray-600">Turn your PDF files into easy-to-edit PPT and PPTX slideshows.</p>
+      </div>
+
+      <!-- Rotate PDF Card -->
+      <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+        <img src="https://cdn-icons-png.flaticon.com/512/3767/3767086.png" alt="Rotate PDF" class="w-16 h-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold text-pink-600">Rotate PDF</h3>
+        <p class="text-gray-600">Rotate PDF pages to the correct orientation in just a few clicks.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="bg-gray-50 py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Choose Us?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-xl font-bold mb-4">Easy to Use</h3>
+          <p class="text-gray-600">Our tools are designed to be simple and intuitive.</p>
+        </div>
+        <!-- Feature Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-xl font-bold mb-4">Fast Processing</h3>
+          <p class="text-gray-600">Get results in seconds with our powerful algorithms.</p>
+        </div>
+        <!-- Feature Card -->
+        <div class="bg-white p-6 rounded-lg shadow-md text-center transform transition hover:-translate-y-1 hover:shadow-lg">
+          <h3 class="text-xl font-bold mb-4">Secure & Private</h3>
+          <p class="text-gray-600">Your files are safe with us. We don’t store them.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="pricing" class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center mb-12">Pricing Plans</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Pricing Card -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg text-center hover:scale-105 transition duration-300">
+          <h3 class="text-xl font-bold mb-4">Free</h3>
+          <p class="text-gray-600 mb-4">Basic tools for free.</p>
+          <p class="text-2xl font-bold mb-4">$0/month</p>
+          <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">Get Started</a>
+        </div>
+        <!-- Pricing Card -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg text-center hover:scale-105 transition duration-300">
+          <h3 class="text-xl font-bold mb-4">Pro</h3>
+          <p class="text-gray-600 mb-4">Advanced tools and features.</p>
+          <p class="text-2xl font-bold mb-4">$9.99/month</p>
+          <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">Get Started</a>
+        </div>
+        <!-- Pricing Card -->
+        <div class="bg-white text-gray-800 p-6 rounded-lg shadow-lg text-center hover:scale-105 transition duration-300">
+          <h3 class="text-xl font-bold mb-4">Business</h3>
+          <p class="text-gray-600 mb-4">For teams and enterprises.</p>
+          <p class="text-2xl font-bold mb-4">$29.99/month</p>
+          <a href="#" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+   <!-- Testimonials Section -->
+   <section class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">What Our Users Say</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Testimonial Card -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+        <p class="text-gray-600 mb-4">"This is the best PDF tool I’ve ever used. It’s fast and reliable!"</p>
+        <p class="text-gray-800 font-semibold">- John Doe</p>
+      </div>
+      <!-- Testimonial Card -->
+      <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+        <p class="text-gray-600 mb-4">"I love how easy it is to merge and compress PDFs. Highly recommended!"</p>
+        <p class="text-gray-800 font-semibold">- Jane Smith</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="container mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <!-- FAQ Item -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2">Is it free to use?</h3>
+        <p class="text-gray-600">Yes, all our tools are 100% free to use.</p>
+      </div>
+      <!-- FAQ Item -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2">Is my data safe?</h3>
+        <p class="text-gray-600">Absolutely! We don’t store your files, and all transactions are encrypted.</p>
+      </div>
+      <!-- FAQ Item -->
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-2">Can I use these tools offline?</h3>
+        <p class="text-gray-600">No, our tools require an internet connection to function.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 bottom-0 fixed w-full text-white py-4 ">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; Created by Sunil Kumar, 2025 PDF Tools. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
